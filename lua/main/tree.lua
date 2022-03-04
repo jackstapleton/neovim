@@ -10,7 +10,6 @@ vim.cmd [[
     let g:nvim_tree_icons = {
       \ 'default': '|',
       \ 'symlink': '',
-      \ 'file_type': '',
       \ 'git': {
       \   'unstaged': "~",
       \   'staged': ">",
@@ -23,7 +22,7 @@ vim.cmd [[
       \ 'folder': {
       \   'arrow_open': "",
       \   'arrow_closed': "",
-      \   'default': "|",
+      \   'default': ">",
       \   'open': "|",
       \   'empty': "",
       \   'empty_open': "",

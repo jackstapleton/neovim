@@ -1,8 +1,5 @@
-local mapping_options = {
-    noremap = true,
-    silent = false,
-}
 
+local mapping_options = { noremap = true, silent = false, }
 local keymap = vim.api.nvim_set_keymap
 
 -- remap space as leader key
@@ -25,10 +22,10 @@ keymap("n", "<S-h>", ":bprevious<CR>", mapping_options)
 -- tree
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", mapping_options)
 -- telescope
-keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", mapping_options)
-keymap("n", "<leader>a", "<cmd>Telescope live_grep<cr>", mapping_options)
-keymap("n", "<leader>g", "<cmd>Telescope grep_string<cr>", mapping_options)
-keymap("n", "<leader>b", "<cmd>Telescope current_buffer_fuzzy_find<cr>", mapping_options)
+keymap("n", "<c-f>", "<cmd>Telescope find_files<cr>", mapping_options)
+keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", mapping_options)
+keymap("n", "<c-a>", "<cmd>Telescope grep_string<cr>", mapping_options)
+keymap("n", "<leader>b", "<cmd>lua require('main.telescope').grep_buffers()<cr>", mapping_options)
 -- toggleterm
 keymap("n", "<leader>p", "<cmd>lua _PYTHON_TOGGLE()<cr>", mapping_options)
 keymap("n", "<leader>q", "<cmd>lua _Q_TOGGLE()<cr>", mapping_options)
@@ -42,8 +39,7 @@ keymap("n", "<leader>o", ":only<cr>", mapping_options)
 keymap("n", "<leader>no", ":set nonumber norelativenumber<cr>", mapping_options)
 keymap("n", "<leader>nu", ":set number norelativenumber<cr>", mapping_options)
 keymap("n", "<leader>nr", ":set number relativenumber<cr>", mapping_options)
--- moving lines
--- keymap("i", "<c-j>", "<Esc>:m .+1<CR>==gi", mapping_options)
--- keymap("i", "<c-k>", "<Esc>:m .-2<CR>==gi", mapping_options)
-keymap("v", "<c-j>", ":m '>+1<CR>gv=gv", mapping_options)
-keymap("v", "<c-k>", ":m '<-2<CR>gv=gv", mapping_options)
+-- git signs
+keymap("n", "gsb", "<cmd>Gitsigns blame_line<cr>", mapping_options)
+keymap("n", "gsn", "<cmd>Gitsigns next_hunk<cr>", mapping_options)
+keymap("n", "gsp", "<cmd>Gitsigns prev_hunk<cr>", mapping_options)

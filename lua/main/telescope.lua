@@ -1,12 +1,12 @@
 local telescope = require("telescope")
 
-local actions = require "telescope.actions"
+local actions = require("telescope.actions")
 
 telescope.setup {
   defaults = {
 
-    prompt_prefix = " ",
-    selection_caret = " ",
+    prompt_prefix = "$ ",
+    selection_caret = "> ",
     path_display = { "smart" },
 
     -- default mappings
@@ -76,6 +76,9 @@ telescope.setup {
     },
   },
   pickers = {
+    live_grep = {
+      sort_only_text = false,
+    }
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -85,10 +88,31 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
+    fzy_native = {
+      override_generic_sorter = true,
+      override_file_sorter = true,
+    },
   },
 }
+
+telescope.load_extension('fzy_native')
+
+local M = {}
+
+M.find_dotfiles = function()
+	require("telescope.builtin").find_files({
+		prompt_title = "< VimRC >",
+		cwd = "~/.config/nvim/",
+		hidden = false,
+	})
+end
+
+M.grep_buffers = function()
+	require("telescope.builtin").live_grep({
+		prompt_title = "< Buffers >",
+    grep_open_files = true,
+		hidden = false,
+	})
+end
+
+return M

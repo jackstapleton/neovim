@@ -40,11 +40,12 @@ packer.init {
 
 -- Install Plugins  --
 return packer.startup(function(use)
-  use "wbthomason/packer.nvim"  -- Have packer manage itself
-  use "nvim-lua/popup.nvim"     -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"   -- Useful lua functions used ny lots of plugins
+  use "wbthomason/packer.nvim" -- Have packer manage itself
+  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
 
-  use "ellisonleao/gruvbox.nvim"  -- colorscheme package
+  use "ellisonleao/gruvbox.nvim"               -- colorscheme package
+  use "jackstapleton/vim-qkdb-syntax-gruvbox"  -- kdb color scheme
   use "windwp/nvim-autopairs"     -- autopairs, integrates with both cmp and treesitter
   use 'numToStr/Comment.nvim'     -- easy comments
   use 'lewis6991/gitsigns.nvim'   -- neovim git gutter
@@ -66,17 +67,18 @@ return packer.startup(function(use)
 
   use 'L3MON4D3/LuaSnip'
 
-  use 'neovim/nvim-lspconfig'            -- enable LSP
-  use "williamboman/nvim-lsp-installer"  -- simple to use language server installer
+  use 'neovim/nvim-lspconfig'           -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
 
-  use "nvim-telescope/telescope.nvim"  -- telescope
+  use "nvim-telescope/telescope.nvim"            -- file searcher
+  use "nvim-telescope/telescope-fzy-native.nvim" -- use fzy native
 
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
-  }                                      -- treesitter for syntax highlighting
-  use "p00f/nvim-ts-rainbow"             -- color pairs of parenthisis
-  use "nvim-treesitter/playground"       -- help to create server
+  }                                -- treesitter for syntax highlighting
+  use "p00f/nvim-ts-rainbow"       -- color pairs of parenthisis
+  use "nvim-treesitter/playground" -- help to create server
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -24,8 +24,10 @@ end
 local mapping_options = { noremap = true, silent = false, }
 local keymap = vim.api.nvim_set_keymap
 
+keymap("n", "<leader>fo", "<cmd>lua _TELE_FILES('~/.vim/plugin')<cr>", mapping_options)
 keymap("n", "<leader>fv", "<cmd>lua _TELE_FILES('~/.config/nvim')<cr>", mapping_options)
 keymap("n", "<leader>fr", "<cmd>lua _TELE_FILES('~/repos')<cr>", mapping_options)
+keymap("n", "<leader>fn", "<cmd>lua _TELE_FILES('~/notes')<cr>", mapping_options)
 
 keymap("n", "<leader>ra", "<cmd>lua _TELE_GREP('~/repos/analytics')<cr>", mapping_options)
 keymap("n", "<leader>rc", "<cmd>lua _TELE_GREP('~/repos/data-cluster-core')<cr>", mapping_options)

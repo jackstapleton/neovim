@@ -25,8 +25,8 @@ local options = {
   undofile    = true,
   undolevels  = 9999,
   -- colorscheme
+  termguicolors = true,        -- terminal colors
   background    = "dark",
-  termguicolors = true,
   -- miscelaneous
   completeopt = { "menu", "menuone", "noselect" },  -- completions
   showmatch = true,                                 -- show matching brackets
@@ -35,5 +35,3 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
-vim.cmd "colorscheme gruvbox"

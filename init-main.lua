@@ -13,7 +13,6 @@ require('main/lualine')
 require('main/toggleterm')
 require('main/keymaps')
 require('main/autocommands')
-require('main/twilight')
 
 require('nomura/gruvbox')
 require('nomura/telescope')

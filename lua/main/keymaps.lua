@@ -43,16 +43,17 @@ keymap("n", "<C-j>", "<C-w>j", mapping_options)
 keymap("n", "<C-k>", "<C-w>k", mapping_options)
 keymap("n", "<C-l>", "<C-w>l", mapping_options)
 keymap("n", "<leader>o", ":only<cr>", mapping_options)
+keymap("n", "<leader>v", ":vert sbn<cr>", mapping_options)
 -- split resize
 keymap("n", "<leader>[", "<cmd>resize -5<cr>", mapping_options)
-keymap("n", "<leader>/]", "<cmd>resize +5<cr>", mapping_options)
-
+keymap("n", "<leader>]", "<cmd>resize +5<cr>", mapping_options)
 -- line numbers
 keymap("n", "<leader>no", ":set nonumber norelativenumber<cr>", mapping_options)
 keymap("n", "<leader>nu", ":set number norelativenumber<cr>", mapping_options)
 keymap("n", "<leader>nr", ":set number relativenumber<cr>", mapping_options)
 -- git signs
-keymap("n", "gsb", "<cmd>Gitsigns blame_line<cr>", mapping_options)
-keymap("n", "gsn", "<cmd>Gitsigns next_hunk<cr>", mapping_options)
-keymap("n", "gsp", "<cmd>Gitsigns prev_hunk<cr>", mapping_options)
-keymap("n", "gss", "<cmd>Gitsigns preview_hunk<cr>", mapping_options)
+keymap("n", "gb", "<cmd>Gitsigns blame_line<cr>", mapping_options)
+keymap("n", "(", "<cmd>Gitsigns prev_hunk<cr>", mapping_options)
+keymap("n", ")", "<cmd>Gitsigns next_hunk<cr>", mapping_options)
+keymap("n", "gp", "<cmd>Gitsigns preview_hunk<cr>", mapping_options)
+keymap("n", "gu", "<cmd>Gitsigns reset_hunk<cr>", mapping_options)

@@ -6,7 +6,7 @@ require("nvim-autopairs").setup {
     javascript = { "string", "template_string" },
     java = false,
   },
-  disable_filetype = { "q", "TelescopePrompt", "spectre_panel" },
+  disable_filetype = { "TelescopePrompt", "spectre_panel" },
   fast_wrap = {
     map = "<M-e>",
     chars = { "{", "[", "(", '"', "'" },

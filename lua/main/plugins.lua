@@ -45,13 +45,14 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
 
   use "ellisonleao/gruvbox.nvim"               -- colorscheme package
-  use "jackstapleton/vim-qkdb-syntax-gruvbox"  -- kdb color scheme
+  -- use "jackstapleton/vim-qkdb-syntax-gruvbox"  -- kdb color scheme
   use "windwp/nvim-autopairs"     -- autopairs, integrates with both cmp and treesitter
   use 'numToStr/Comment.nvim'     -- easy comments
   use 'lewis6991/gitsigns.nvim'   -- neovim git gutter
   use "akinsho/bufferline.nvim"   -- bufferline
   use 'nvim-lualine/lualine.nvim' -- status line
   use "akinsho/toggleterm.nvim"   -- terminal
+  use "lukas-reineke/indent-blankline.nvim" -- indent lines
 
   use 'kyazdani42/nvim-tree.lua'     -- file explorer
   use 'kyazdani42/nvim-web-devicons' -- file icons
@@ -66,6 +67,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lua'     --
 
   use 'L3MON4D3/LuaSnip'
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   use 'neovim/nvim-lspconfig'           -- enable LSP
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer

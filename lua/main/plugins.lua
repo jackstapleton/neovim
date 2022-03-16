@@ -53,10 +53,10 @@ return packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim' -- status line
   use "akinsho/toggleterm.nvim"   -- terminal
   use "lukas-reineke/indent-blankline.nvim" -- indent lines
+  use "mhinz/vim-startify"        -- session manager
 
   use 'kyazdani42/nvim-tree.lua'     -- file explorer
   use 'kyazdani42/nvim-web-devicons' -- file icons
-
 
   use 'hrsh7th/nvim-cmp'         -- the completion plugin
   use 'hrsh7th/cmp-buffer'       -- buffer completions

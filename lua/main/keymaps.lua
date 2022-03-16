@@ -6,6 +6,8 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", mapping_options)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- reload lua
+keymap("n", "<leader>r", "<cmd>source /home/jack/.config/nvim/init.lua<cr>", mapping_options)
 -- shortcuts
 keymap("n", "Q", "@q", mapping_options)         -- easily run recording
 keymap("i", "jk", "<esc>", mapping_options)     -- easily escape from insert mode
@@ -57,3 +59,7 @@ keymap("n", "(", "<cmd>Gitsigns prev_hunk<cr>", mapping_options)
 keymap("n", ")", "<cmd>Gitsigns next_hunk<cr>", mapping_options)
 keymap("n", "gp", "<cmd>Gitsigns preview_hunk<cr>", mapping_options)
 keymap("n", "gu", "<cmd>Gitsigns reset_hunk<cr>", mapping_options)
+-- treesitter
+keymap("n", "tsh", "<cmd>TSHighlightCapturesUnderCursor<cr>", mapping_options)
+keymap("n", "tsp", "<cmd>TSPlaygroundToggle<cr>", mapping_options)
+keymap("n", "tsu", "<cmd>TSUpdate<cr>", mapping_options)

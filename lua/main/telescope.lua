@@ -100,6 +100,7 @@ telescope.load_extension('fzy_native')
 function _TELE_FILES(directory)
 	require("telescope.builtin").find_files({
 		cwd = directory,
+    prompt_title = 'Files (' .. directory .. ')',
 		hidden = false,
 	})
 end
@@ -107,6 +108,7 @@ end
 function _TELE_GREP(directory)
 	require("telescope.builtin").live_grep({
 		cwd = directory,
+    prompt_title = 'Ack (' .. directory .. ')',
 		hidden = false,
 	})
 end
@@ -114,6 +116,7 @@ end
 function _TELE_WORD(directory)
 	require("telescope.builtin").grep_string({
 		cwd = directory,
+    prompt_title = 'Rg (' .. directory .. ') - ' .. opts,
 		hidden = false,
 	})
 end

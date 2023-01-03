@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
 
   use "ellisonleao/gruvbox.nvim"               -- colorscheme package
+  use "shaunsingh/seoul256.nvim"               -- colorscheme package
   -- use "jackstapleton/vim-qkdb-syntax-gruvbox"  -- kdb color scheme
   use "windwp/nvim-autopairs"     -- autopairs, integrates with both cmp and treesitter
   use 'numToStr/Comment.nvim'     -- easy comments

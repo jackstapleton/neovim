@@ -11,8 +11,8 @@ require('lualine').setup {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+    lualine_x = {'filetype'},
+    lualine_y = {''},
     lualine_z = {'location'}
   },
   inactive_sections = {
@@ -25,5 +25,5 @@ require('lualine').setup {
   },
   tabline = {},
   extensions = {},
-  theme = 'gruvbox',
+  theme = 'seoul256',
 }

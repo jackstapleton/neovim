@@ -19,8 +19,8 @@ function _FLOAT_TERMINAL(command, directory)
     float_opts = {
       border = 'single', -- | 'double' | 'shadow' | 'curved' | ... other options supported by win open
       -- like `size`, width and height can be a number or function which is passed the current terminal
-      width = 100,
-      height = 40,
+      width = 150,
+      height = 60,
       winblend = 5,
     },
     hidden = true,
@@ -28,6 +28,27 @@ function _FLOAT_TERMINAL(command, directory)
   })
   popup:toggle()
 end
+
+function _TESTPLAN_TOGGLE(--[[optional]]test_suite_filter)
+  if not test_suite_filter then
+    test_suite_filter = '*'
+  else
+    test_suite_filter = '*' .. test_suite_filter .. '*'
+  end
+  command = "cd $tst; source /local/stapletj/miniconda3/etc/profile.d/conda.sh ; conda activate testplan;"
+  command = command .. " ./dev_run_tests.sh --mode client_only --port 12610 --procname gw-stapletj-1"
+  command = command .. " --test-suites ~/worktrees/analytics.git/REPO/test/analytics_suites/"
+  command = command .. " --test-types dashboards --test-filter *::" .. test_suite_filter .. "::*"
+  command = command .. " --verbose" 
+  _FLOAT_TERMINAL(command, '~/repos/data-cluster-core/test/integration')
+end
+
+-- Keymaps to send code to Terminal
+vim.keymap.set('i', "<c-y><c-y>", "<esc>yy<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>ka", { desc = '[Y]ank line and paste in the terminal below - ctrl y' })
+vim.keymap.set('n', "<c-y><c-y>", "yy<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>k", { desc = '[Y]ank line and paste in the terminal below - ctrl y' })
+vim.keymap.set('i', "<c-y><c-p>", "<esc>yap<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>ka", { desc = '[Y]ank [Paragraph] and paste in the terminal below - ctrl y' })
+vim.keymap.set('n', "<c-y><c-p>", "yap<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>k", { desc = '[Y]ank [Paragraph] and paste in the terminal below - ctrl y' })
+
 
 -- Keymaps to move around from Terminals
 vim.keymap.set('t', '<esc>',      [[<c-\><c-n>]],          {desc = 'Move to normal mode in Terminal- "esc"'})
@@ -47,3 +68,5 @@ vim.api.nvim_set_keymap('n', '<leader>tq',
 vim.api.nvim_set_keymap('n', '<leader>tp',
   '<esc>:lua _FLOAT_TERMINAL("tree-sitter generate; tree-sitter parse examples/test.txt", "~/repos/tree-sitter-python")<cr>',
   { desc = '[T]oggle [P]ython popup terminal - "leader tp"'})
+
+vim.api.nvim_set_keymap('n', '<leader>ta', '<esc>:lua _TESTPLAN_TOGGLE("")<cr>', { desc = '[T]estplan with [A]ll tests popup terminal - "leader ta"'})

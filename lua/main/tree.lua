@@ -23,7 +23,7 @@ vim.cmd [[
       \   'arrow_open': "",
       \   'arrow_closed': "",
       \   'default': ">",
-      \   'open': "|",
+      \   'open': "-",
       \   'empty': "",
       \   'empty_open': "",
       \   'symlink': "",

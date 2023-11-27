@@ -46,13 +46,16 @@ require('packer').startup(function(use)
   -- Toggleterm to use :terminal
   use 'akinsho/toggleterm.nvim'
   -- Buffer Plugins
-  use 'famiu/bufdelete.nvim'
+  -- use 'famiu/bufdelete.nvim'
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
+  use 'jackstapleton/vim-qkdb-syntax-gruvbox'
+
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'ellisonleao/gruvbox.nvim' -- colorscheme package
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
 

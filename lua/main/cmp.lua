@@ -79,7 +79,9 @@ cmp.setup {
     end,
   },
 
-  documentation = false,
+  window = {
+    documentation = false,
+  },
 
   experimental = {
     ghost_text = true,

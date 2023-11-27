@@ -1,5 +1,8 @@
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local ls = require('luasnip')
 local types = require('luasnip.util.types')
+
 
 ls.config.set_config {
   history = true, -- remember the last snippet
@@ -10,6 +13,10 @@ ls.config.set_config {
 ls.snippets = {
   all = {
     ls.parser.parse_snippet("expand", "-- this is what was expanded")
+  },
+
+  python = {
+    ls.parser.parse_snippet("dbg", "from IPython import embed; embed()"),
   },
 
   q = {
@@ -26,5 +33,7 @@ ls.snippets = {
     ls.parser.parse_snippet("exe", "exec $1 from $2 where $0"),
     ls.parser.parse_snippet("upd", "update $1 from $2 where $0"),
     ls.parser.parse_snippet("del", "delete $1 from $2 where $0"),
-  }
+
+    ls.parser.parse_snippet("dup", ".dupNS.exception:`$0;"),
+  },
 }

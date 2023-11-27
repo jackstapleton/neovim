@@ -16,12 +16,17 @@ keymap("n", "<cr>", "o<esc>0D", mapping_options)  -- easily enter command mode
 keymap("n", "<leader>s", ":%s/\\<<c-r><c-w>\\>/<c-r><c-w>/g<left><left>", mapping_options) -- search and replace
 keymap("n", "<leader>zz", ":%s/\\s\\+$//g<cr>", mapping_options)                           -- zap whitespace
 keymap("n", "<leader>zt", ":%s/\\t/    /g<cr>", mapping_options)                           -- replace tabs with spaces
+keymap("n", "<leader>db", "o'dbg;<esc>", mapping_options)
+keymap("n", "<leader>em", "ofrom IPython import embed; embed()<esc>", mapping_options)
+-- toggle settings
+keymap("n", "<leader?x", "<cmd>call ToggleVim()<cr>", mapping_options)
 -- keeping it centered
 keymap("n", "n", "nzz", mapping_options)
 keymap("n", "N", "Nzz", mapping_options)
 -- buffers
 keymap("n", "<S-l>", ":bnext<CR>", mapping_options)
 keymap("n", "<S-h>", ":bprevious<CR>", mapping_options)
+keymap("n", "<leader>c", "<cmd>w <bar> %bd <bar> e# <bar> bd# <CR><CR>", mapping_options)
 -- tree
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", mapping_options)
 -- telescope
@@ -30,12 +35,18 @@ keymap("n", "<c-g>", "<cmd>Telescope live_grep<cr>", mapping_options)
 keymap("n", "<c-a>", "<cmd>Telescope grep_string<cr>", mapping_options)
 keymap("n", "<leader>b", "<cmd>lua require('main.telescope').grep_buffers()<cr>", mapping_options)
 -- toggleterm
-keymap("n", "<leader>p", "<cmd>lua _PYTHON_TOGGLE()<cr>", mapping_options)
+keymap("n", "<leader>pf", ":lua _TESTPLAN_TOGGLE('')<left><left>", mapping_options)
+keymap("n", "<leader>pa", ":lua _TESTPLAN_TOGGLE('')<cr>", mapping_options)
+keymap("n", "<leader>pj", ":lua _TESTPLAN_TOGGLE('Join')<cr>", mapping_options)
+keymap("n", "<leader>pp", ":lua _TESTPLAN_TOGGLE('PreProc')<cr>", mapping_options)
+keymap("n", "<leader>pu", ":lua _TESTPLAN_TOGGLE('Upd')<cr>", mapping_options)
 keymap("n", "<leader>q", "<cmd>lua _Q_TOGGLE()<cr>", mapping_options)
 -- yank, move below, paste, move back
+keymap("i", "<c-y>", "<esc>yy<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>ki", mapping_options)
 keymap("i", "<leader>yy", "<esc>yy<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>ki", mapping_options)
 keymap("i", "<leader>yp", "<esc>yap<c-w>j<c-\\><c-n>im<cr><c-\\><c-n>pi<cr>end<cr><c-\\><c-n><c-w>ki", mapping_options)
 keymap("i", "<leader>yf", "<esc><cmd>%y+<cr><c-w>j<c-\\><c-n>im<cr><c-\\><c-n>pi<cr>end<cr><c-\\><c-n><c-w>ki", mapping_options)
+keymap("n", "<c-y>", "yy<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>k", mapping_options)
 keymap("n", "<leader>yy", "yy<c-w>j<c-\\><c-n>pi<cr><c-\\><c-n><c-w>k", mapping_options)
 keymap("n", "<leader>yp", "yap<c-w>j<c-\\><c-n>im<cr><c-\\><c-n>pi<cr>end<cr><c-\\><c-n><c-w>k", mapping_options)
 keymap("n", "<leader>yf", "<cmd>%y+<cr><c-w>j<c-\\><c-n>im<cr><c-\\><c-n>pi<cr>end<cr><c-\\><c-n><c-w>k", mapping_options)
@@ -63,3 +74,9 @@ keymap("n", "gu", "<cmd>Gitsigns reset_hunk<cr>", mapping_options)
 keymap("n", "tsh", "<cmd>TSHighlightCapturesUnderCursor<cr>", mapping_options)
 keymap("n", "tsp", "<cmd>TSPlaygroundToggle<cr>", mapping_options)
 keymap("n", "tsu", "<cmd>TSUpdate<cr>", mapping_options)
+-- luasnip
+keymap("i", "<silent><C-k>", "<cmd>lua require('luasnip').jump(1)<cr>", mapping_options)
+keymap("i", "<silent><C-j>", "<cmd>lua require('luasnip').jump(-1)<cr>", mapping_options)
+-- quickly open files
+keymap("n", "<leader>wb", "<cmd>vsp ~/.bash_profile<cr>", mapping_options)
+keymap("n", "<leader>wt", "<cmd>vsp ~/notes/temp.txt<cr>", mapping_options)

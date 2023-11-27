@@ -2,6 +2,9 @@
 vim.opt.autowrite = true
 
 -- Split settings
+vim.opt.wrap = false
+
+-- Split settings
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
@@ -45,12 +48,12 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Decrease update time
-vim.opt.updatetime = 50
+vim.opt.updatetime = 500
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.opt.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
